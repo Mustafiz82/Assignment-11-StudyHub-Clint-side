@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import LoggedOutNav from '../Component/Nav/LoggedOutNav';
 
 const MainLayout = () => {
     return (
         <div>
-            <h1>Main Layout</h1>
+            <LoggedOutNav></LoggedOutNav>
             <Outlet></Outlet>
         </div>
     );
