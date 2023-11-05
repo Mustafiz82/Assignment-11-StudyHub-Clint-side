@@ -1,22 +1,61 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AuthImage from "../../assets/login-regi.png";
+import { AuthContext } from '../../Context/Context';
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
 
 
-     
+    const {user   ,SignIN , GoogleSignIn} = useContext(AuthContext)
+    const [error , setError] = useState("")
+    const navigate = useNavigate()
+
+
     const handleSubmit = (e) => {
+
         e.preventDefault()
+        const loadToast = toast.loading("signing in User")
+
 
         const Email = e.target.Email.value
         const Password = e.target.Password.value
-
-
-
+        
         const user = { Email , Password }
         console.log(user);
+
+
+        SignIN( Email , Password )
+            .then(result => {
+                const success = toast.success('User Created Successfully')
+                console.log(result.user);
+                toast.dismiss(loadToast , success)
+                navigate("/")
+                
+            })
+            .catch(error  => {
+                console.log(error.message);
+            })
+
+
     }
+
+
+    
+
+    const handlegoogelSignIn = () => {
+
+        GoogleSignIn()
+        .then(result => {
+            console.log(result.user);
+            navigate("/")
+        })
+        .catch(error => {
+            setError(error);
+        })
+    }
+
     return (
         <div>
            
@@ -53,18 +92,20 @@ const Login = () => {
 								/>
 							
 							</div>
+                            <p className="text-red-500">   {error}</p>
 							<div className="form-control mt-6">
 								<button type="submit" className="btn btn-primary">
 									SignIn
 								</button>
 							</div>
-							<div className="form-control mt-2">
-								<button className="btn btn-primary">
+
+						</form>
+							<div className="form-control mt-2  mx-8 mb-5 -mt-2">
+								<button onClick={handlegoogelSignIn}  className="btn btn-primary">
 									SignIN with Google
 								</button>
 							</div>
-
-						</form>
+                        <Toaster></Toaster>
 					</div>
 				</div>
 			</div>

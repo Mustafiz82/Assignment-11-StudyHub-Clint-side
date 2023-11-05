@@ -43,7 +43,7 @@ const Regestration = () => {
                 
             })
             .catch(error  => {
-                setError(error);
+                setError(error.massage);
             })
         }
         else {

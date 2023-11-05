@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <div>
             <LoggedOutNav></LoggedOutNav>
-            {/* <LoggedInNav></LoggedInNav> */}
+            <LoggedInNav></LoggedInNav>
             <Outlet></Outlet>
         </div>
     );
