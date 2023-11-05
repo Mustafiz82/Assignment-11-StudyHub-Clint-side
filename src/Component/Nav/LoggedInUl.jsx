@@ -16,7 +16,7 @@ const LoggedInUl = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/login"
+					to="/CreateAssignment"
 					className={({ isActive, isPending }) =>
 						isPending ? "pending" : isActive ? " active " : ""
 					}
@@ -26,7 +26,7 @@ const LoggedInUl = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/Regestration"
+					to="/myAssingment"
 					className={({ isActive, isPending }) =>
 						isPending ? "pending" : isActive ? " active " : ""
 					}
@@ -36,12 +36,12 @@ const LoggedInUl = () => {
 			</li>
 			<li>
 				<NavLink
-					to="/Regestration"
+					to="/submitedAssingment"
 					className={({ isActive, isPending }) =>
 						isPending ? "pending" : isActive ? " active " : ""
 					}
 				>
-					my assignments
+					 submitted assignments
 				</NavLink>
 			</li>
 		</>

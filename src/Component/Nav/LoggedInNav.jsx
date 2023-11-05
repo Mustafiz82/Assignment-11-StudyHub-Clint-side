@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from "../../assets/logo.png"
 import LoggedInUl from './LoggedInUl';
+import { AuthContext } from '../../Context/Context';
+import portrait from "../../assets/portrait.webp"
+import { Link } from 'react-router-dom';
 
 
 const LoggedInNav = () => {
+    const {logOut ,user} = useContext(AuthContext)
+    console.log(user);
+
+    const handleLogout = () => {
+        logOut()
+        
+    }
 
     
     return (
@@ -35,9 +45,9 @@ const LoggedInNav = () => {
                     </ul>
                 </div>
                 <div>
-                <a className="btn btn-ghost normal-case text-xl">
+                <Link to="/" className="btn btn-ghost normal-case text-xl">
                 <img src={logo} alt="" className="w-10 h-10 " />StudyHub
-                </a>
+                </Link>
                 
                 </div>
             </div>
@@ -46,8 +56,9 @@ const LoggedInNav = () => {
                     <LoggedInUl></LoggedInUl>
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div  className="navbar-end space-x-5">
+                <img  title={user.displayName} src={user.photoURL || portrait} alt="" className='h-10 w-10 rounded-full  '/>
+                <button onClick={handleLogout} className="btn">Logout</button>
             </div>
         </div>
     </div>
