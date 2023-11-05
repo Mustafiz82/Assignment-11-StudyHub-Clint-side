@@ -8,7 +8,7 @@ const MainLayout = () => {
 	const { user } = useContext(AuthContext);
 	return (
 		<div>
-			{user ? <LoggedInNav></LoggedInNav> : <LoggedOutNav></LoggedOutNav>}
+			<div >{user ? <LoggedInNav></LoggedInNav> : <LoggedOutNav></LoggedOutNav>} </div>
 			<Outlet></Outlet>
 		</div>
 	);
