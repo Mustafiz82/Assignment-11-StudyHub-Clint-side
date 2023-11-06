@@ -1,0 +1,179 @@
+[
+    {
+      "title": "Mathematics Quiz",
+      "description": "1. Solve algebraic equations. 2. Calculate derivatives and integrals. 3. Apply mathematical concepts to real-world problems.",
+      "marks": 90,
+      "difficulty": "medium",
+      "dueDate": "2023-11-15",
+      "imageURL": "https://i.ibb.co/zX2x5Ln/Math-Quize.png"
+    },
+    {
+      "title": "Literary Analysis Essay",
+      "description": "1. Analyze a classic novel or poem of your choice. 2. Explore themes, symbolism, and literary techniques. 3. Write a detailed essay.",
+      "marks": 85,
+      "difficulty": "hard",
+      "dueDate": "2023-11-18",
+      "imageURL": "https://i.ibb.co/Xkm6xtj/Literary-Essay-Templates1.webp"
+    },
+    {
+      "title": "History Research Project",
+      "description": "1. Choose a historical event or era to research. 2. Write a comprehensive research paper. 3. Present your findings through a well-structured report.",
+      "marks": 95,
+      "difficulty": "medium",
+      "dueDate": "2023-11-19",
+      "imageURL": "https://i.ibb.co/H26Dh7m/Black-History-Month-Research-Project-1.webp"
+    },
+    {
+      "title": "Computer Programming Assignment",
+      "description": "1. Code a program in a programming language of your choice. 2. Implement specific functions and algorithms. 3. Test and debug your code.",
+      "marks": 100,
+      "difficulty": "hard",
+      "dueDate": "2023-11-22",
+      "imageURL": "https://i.ibb.co/K2v6rYf/Computer-Programming-Assignment.jpg"
+    },
+    {
+      "title": "Geography Presentation",
+      "description": "1. Prepare a presentation on a global environmental issue. 2. Use maps and data to support your presentation. 3. Deliver a persuasive talk.",
+      "marks": 80,
+      "difficulty": "easy",
+      "dueDate": "2023-11-24",
+      "imageURL": "https://i.ibb.co/Z8pcncB/Geography-Class-by-Discover-Template-1-scaled.webp"
+    },
+    {
+      "title": "Physics Quiz",
+      "description": "1. Calculate the velocity of a car traveling at 60 km/h for 3 hours. 2. Explain the concept of gravity and its effects on objects. 3. Solve a problem related to Newton's laws of motion.",
+      "marks": 90,
+      "difficulty": "medium",
+      "dueDate": "2023-11-25",
+      "imageURL": "https://i.ibb.co/BLmkrh2/Physics-Quiz-01-1024x576.png"
+    },
+    {
+      "title": "Chemistry Lab Report",
+      "description": "1. Conduct a chemistry experiment and report your findings. 2. Analyze the chemical reactions and their outcomes.",
+      "marks": 85,
+      "difficulty": "medium",
+      "dueDate": "2023-11-26",
+      "imageURL": "https://i.ibb.co/L1hX9PX/chamestry-Labimages.png"
+    },
+    {
+      "title": "English Literature Essay",
+      "description": "1. Analyze a classic work of English literature. 2. Explore the themes and literary techniques used by the author.",
+      "marks": 95,
+      "difficulty": "hard",
+      "dueDate": "2023-11-29",
+      "imageURL": "https://i.ibb.co/Xkm6xtj/Literary-Essay-Templates1.webp"
+    },
+    {
+      "title": "Biology Research Project",
+      "description": "1. Choose a specific aspect of biology to research. 2. Write a detailed research paper. 3. Discuss the implications of your findings.",
+      "marks": 100,
+      "difficulty": "medium",
+      "dueDate": "2023-11-30",
+      "imageURL": "https://i.ibb.co/7JgCSSh/Biology-Research-Project.jpg"
+    },
+    {
+      "title": "Computer Science Coding Challenge",
+      "description": "1. Implement a sorting algorithm in Python and analyze its time complexity. 2. Create a program that simulates a simple e-commerce shopping cart.",
+      "marks": 110,
+      "difficulty": "hard",
+      "dueDate": "2023-12-02",
+      "imageURL": "https://i.ibb.co/znS9WFt/coding-chalange.jpg"
+    },
+    {
+      "title": "Physical Chemistry Lab Experiment",
+      "description": "1. Conduct an experiment on chemical kinetics and record your observations. 2. Analyze the factors affecting reaction rates in a chemical system.",
+      "marks": 115,
+      "difficulty": "medium",
+      "dueDate": "2023-12-08",
+      "imageURL": "https://i.ibb.co/L1hX9PX/chamestry-Labimages.png"
+    },
+    {
+      "title": "Economics Research Paper",
+      "description": "1. Choose a current economic issue and write a research paper on its impact and possible solutions. 2. Analyze the economic theories of supply and demand.",
+      "marks": 95,
+      "difficulty": "medium",
+      "dueDate": "2023-12-10",
+      "imageURL": "https://i.ibb.co/7RwMXSB/ecomonics.jpg"
+    },
+    {
+      "title": "Psychology Case Study",
+      "description": "1. Select a psychological disorder and create a detailed case study with diagnostic criteria and treatment recommendations. 2. Discuss the ethics of psychological research and experimentation.",
+      "marks": 105,
+      "difficulty": "medium",
+      "dueDate": "2023-12-13",
+      "imageURL": "https://i.ibb.co/3S0PHwp/Psychology-Case-Study.png"
+    },
+    {
+      "title": "Environmental History Essay",
+      "description": "1. Write an essay on the history of environmental movements and conservation efforts. 2. Examine the role of environmental policies in shaping modern society.",
+      "marks": 85,
+      "difficulty": "medium",
+      "dueDate": "2023-12-14",
+      "imageURL": "https://i.ibb.co/g4DqPQp/Environmental-History-Essay.webp"
+    },
+    {
+      "title": "Political Science Debate",
+      "description": "1. Participate in a debate on a current political issue of your choice. 2. Research and present arguments for and against your assigned position.",
+      "marks": 100,
+      "difficulty": "hard",
+      "dueDate": "2023-12-15",
+      "imageURL": "https://i.ibb.co/fH8KgX3/Political-science-Essay-guide.webp"
+    },
+    {
+      "title": "Art History Presentation",
+      "description": "1. Create a presentation on the artistic movements of the 20th century. 2. Analyze and compare two famous paintings from different art periods.",
+      "marks": 90,
+      "difficulty": "medium",
+      "dueDate": "2023-12-16",
+      "imageURL": "https://i.ibb.co/YRGNKTL/art-history-l.jpg"
+    },
+    {
+      "title": "Environmental Science Report",
+      "description": "1. Write a report on the impact of deforestation on biodiversity and climate change. 2. Discuss solutions to mitigate the effects of air pollution.",
+      "marks": 105,
+      "difficulty": "medium",
+      "dueDate": "2023-12-17",
+      "imageURL": "https://i.ibb.co/6Z39xzS/Environmental-Science-Repor.jpg"
+    },
+    {
+      "title": "Web Development Project",
+      "description": "1. Create a responsive website for a fictional business. 2. Implement a feature that allows users to sign in using social media accounts.",
+      "marks": 120,
+      "difficulty": "hard",
+      "dueDate": "2023-12-18",
+      "imageURL": "https://i.ibb.co/kG46b8r/Web-Development-Project.jpg"
+    },
+    {
+      "title": "Physical Education Fitness Challenge",
+      "description": "1. Complete a set of fitness exercises and record your performance. 2. Analyze the importance of physical activity for overall health.",
+      "marks": 95,
+      "difficulty": "medium",
+      "dueDate": "2023-12-20",
+      "imageURL": "https://i.ibb.co/pK7LvmY/Physical-Fitness.png"
+    },
+    {
+      "title": "Music Composition Project",
+      "description": "1. Compose an original piece of music. 2. Record your composition and explain the creative process.",
+      "marks": 90,
+      "difficulty": "medium",
+      "dueDate": "2023-12-21",
+      "imageURL": "https://i.ibb.co/V98QjpL/Music-Composition-Project.jpg"
+    },
+    {
+      "title": "Political Science Essay",
+      "description": "1. Write an essay on a current political topic. 2. Analyze different viewpoints and provide a well-reasoned argument.",
+      "marks": 100,
+      "difficulty": "hard",
+      "dueDate": "2023-12-22",
+      "imageURL": "https://i.ibb.co/fH8KgX3/Political-science-Essay-guide.webp"
+    },
+    {
+      "title": "Psychology Experiment Report",
+      "description": "1. Design and conduct a psychological experiment. 2. Analyze the results and draw conclusions about human behavior.",
+      "marks": 105,
+      "difficulty": "medium",
+      "dueDate": "2023-12-23",
+      "imageURL": "https://i.ibb.co/Dg60XJ0/Psychology-Experiment-Report.jpg"
+    }
+  ]
+  
