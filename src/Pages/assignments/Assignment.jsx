@@ -1,47 +1,53 @@
 import { useQuery } from "@tanstack/react-query";
-import loading from "../../assets/loading.gif";
+import loadingImage from "../../assets/loading.gif";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Assignmentcard from "./Assignmentcard";
 
 const Assignment = () => {
-	const [assignments, setAssignments] = useState([]);
+	const [newData , setNewData] = useState([])
+	const [newData2 , setNewData2] = useState([])
+
 	const { data, isLoading } = useQuery({
 		queryKey: ["assignment"],
 		queryFn: async () => {
 			const res = await axios.get("http://localhost:5100/assignments");
-			return res;
+			setNewData(res.data)
+			setNewData2(res.data)
+			return res.data;
 		},
 	});
-	// setAssignments(data.data)
 
 	if (isLoading) {
 		return (
 			<div className="h-screen w-screen flex justify-center items-center -mt-10">
-				<img src={loading} alt="" />
+				<img src={loadingImage} alt="" />
 			</div>
 		);
 	}
 
-	useEffect(() => {
-		if (data) {
-			setAssignments(data.data);
-		}
-	}, [data]);
-
-
-
 	const handlechange = (e) => {
+
+
 		const selectElement = e.target;
 		const selectedOption =
 			selectElement.options[selectElement.selectedIndex];
 		const filterValue = selectedOption.value;
 
-		const filteredData = data.data.filter(
+
+		const filteredData = newData2.filter(
 			(item) => item.difficulty == filterValue
 		);
+			setNewData(filteredData);
+			console.log(filteredData.length);
 
-		console.log(filteredData);
+			if(filteredData.length == 0){
+				setNewData(newData2)
+			}
+			else{
+				setNewData(filteredData)
+			}
+
 	};
 
 	return (
@@ -72,9 +78,12 @@ const Assignment = () => {
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-				{data.data.map((item) => (
+				{newData.map((item) => (
 					<Assignmentcard key={item._id} item={item}></Assignmentcard>
 				))}
+				{/* {data.map((item) => (
+					<Assignmentcard key={item._id} item={item}></Assignmentcard>
+				))} */}
 			</div>
 		</div>
 	);
