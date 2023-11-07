@@ -1,12 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import loadingImage from "../../assets/loading.gif";
+import { AuthContext } from "../../Context/Context";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const AssignmentDetail = () => {
 	const { id } = useParams();
-	console.log(id);
+	const { user } = useContext(AuthContext);
 
 	const { data, isLoading } = useQuery({
 		queryKey: ["assignment"],
@@ -37,11 +40,28 @@ const AssignmentDetail = () => {
 	} = data;
 
 	const handlesubmit = (e) => {
-
-        const pdf = e.target.pdf.value
-        const textArea = e.target.textArea.value
-        console.log(pdf , textArea);
 		e.preventDefault();
+		const loadToast = toast.loading("Submettiing Assingmnet")
+
+
+		const pdf = e.target.pdf.value;
+		const note = e.target.textArea.value;
+		const userName = user.displayName;
+		const userEmail = user.email;
+		const status = "pending"
+		const ObtainMarks = "pending"
+		const feedback = "pending"
+
+		const pdfData = { pdf, note, userEmail, userName  ,status , title ,marks};
+
+		axios
+			.post("http://localhost:5100/submittedAssignments", pdfData)
+			.then((res) => {
+				const success = toast.success('Assignment Submitted Successfully')
+				console.log(res.data);
+				toast.dismiss(loadToast , success)
+			})
+			.catch((err) => console.log(err));
 
 		console.log("hello");
 	};
@@ -93,7 +113,7 @@ const AssignmentDetail = () => {
 
 						<form onSubmit={handlesubmit}>
 							<input
-								type="text"
+								type="url"
 								name="pdf"
 								placeholder="Pdf Link"
 								className="    mb-5 input input-bordered w-full "
@@ -101,13 +121,15 @@ const AssignmentDetail = () => {
 
 							<textarea
 								placeholder="QuickNote"
-                                name="textArea"
+								name="textArea"
 								className="textarea textarea-bordered textarea-md w-full "
 							></textarea>
 
 							<button className="btn btn-success  ">
 								Submit
 							</button>
+							<Toaster></Toaster>
+
 						</form>
 					</div>
 				</dialog>
