@@ -1,7 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Context/Context";
+import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const CreateAssignment = () => {
 
@@ -11,48 +14,50 @@ const CreateAssignment = () => {
 	const [startDate, setStartDate] = useState(new Date());
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const loadToast = toast.loading("creating Assingmnet")
+
 		const form = e.target;
-		const Title = form.Title.value;
-		const Difficulty = form.Difficulty.value;
-		const ImageUrl = form.ImageUrl.value;
-		const Mark = form.Mark.value;
-		const ShortDescription = form.Description.value;
+		const title = form.Title.value;
+		const difficulty = form.Difficulty.value;
+		const imageURL = form.ImageUrl.value;
+		const marks = form.Mark.value;
+		const description = form.Description.value;
         const dueDate =  startDate.toLocaleDateString()
-        const creatiorEmail = user.email
+        const creatorEmail = user.email
         // console.log(email);
 
 		const formData = {
-			Title,
-			Difficulty,
-			ImageUrl,
-			Mark,
-			ShortDescription,
+			title,
+			difficulty,
+			imageURL,
+			marks,
+			description,
             dueDate,
-            creatiorEmail
-            
-           
+            creatorEmail          
 
 		};
 		console.log(formData);
 
-        
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify(formData),
-		// })
-		// 	.then((res) => res.json())
-		// 	.then((data) => console.log(data));
+
+
+		axios.post("http://localhost:5100/assignments" , formData)
+		.then(res => {
+			const success = toast.success('Assignment Created Successfully')
+			console.log(res.data);
+			toast.dismiss(loadToast , success)
+		})
+		.catch(err => console.log(err))	
+
+
 	};
 
-    console.log(startDate);
+
 	return (
 		<div className="bg-sky-100 p-10 ">
 			<div className="md:w-1/2 mx-auto bg-white px-5 pt-5 ">
 				<div>
 					<h1 className="text-4xl text-center text-blue-400 ">
-						Create Assignment
+						Create Assignment 
 					</h1>
 				</div>
 				<form onSubmit={handleSubmit} className="form-control ">
@@ -116,6 +121,7 @@ const CreateAssignment = () => {
 					<button className="btn btn-primary my-5" type="submit">
 						Create Assignment
 					</button>
+					<Toaster></Toaster>
 				</form>
 			</div>
 		</div>

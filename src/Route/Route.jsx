@@ -13,6 +13,7 @@ import CreateAssignment from '../Pages/createAssignments/CreateAssignment';
 import Assignment from '../Pages/assignments/Assignment';
 import SubmitedAssingment from '../Pages/SubmitedAssingment/SubmitedAssingment';
 import AssignmentDetail from '../Pages/AssignmentDetails/AssignmentDetail';
+import UpdateAssignment from '../Pages/UpdateAssignment/UpdateAssignment';
  
   
 const router = createBrowserRouter([
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         {
           path: "/assignments/:id",
           element: <AssignmentDetail></AssignmentDetail>
+        },
+        {
+          path: "/updataAssignment/:id",
+          element: <UpdateAssignment></UpdateAssignment>
         },
       ],
     },

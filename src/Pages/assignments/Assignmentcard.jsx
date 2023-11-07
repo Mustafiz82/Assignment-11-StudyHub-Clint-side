@@ -38,9 +38,9 @@ const Assignmentcard = ({ item }) => {
 								view Assignment
 							</button>
 						</Link>
-						<button  className="btn btn-primary">
+						<Link to={`/updataAssignment/${_id}`}><button  className="btn btn-primary">
 							Update Assignment
-						</button>
+						</button></Link>
 					</div>
 				</div>
 			</div>
