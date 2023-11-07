@@ -117,6 +117,7 @@ const AssignmentDetail = () => {
 								name="pdf"
 								placeholder="Pdf Link"
 								className="    mb-5 input input-bordered w-full "
+								required
 							/>
 
 							<textarea

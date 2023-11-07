@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import loadingImage from "../../assets/loading.gif";
+import noData from "../../assets/no-result.gif";
+
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -28,6 +30,14 @@ const SubmitedAssingment = () => {
 			</div>
 		);
 	}
+
+    if(data.length == 0 ){
+        return <div className="h-screen w-screen flex justify-center items-center -mt-10">
+				<img src={noData} alt="" />
+			</div>
+    }
+
+    console.log(data.length);
 	// console.log(getSubmitData._id);
 
 	const handleSubmit = (e) => {
@@ -123,6 +133,7 @@ const SubmitedAssingment = () => {
 								name="mark"
 								placeholder={`Assign a mark .  the total mark is ${getSubmitData.marks}`}
 								className="    mb-5 input input-bordered w-full "
+                                required
 							/>
 
 							<textarea
