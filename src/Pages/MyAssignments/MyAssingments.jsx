@@ -24,7 +24,7 @@ const MyAssingments = () => {
             })
             .catch((error) => {
               console.error("Error loading data:", error);
-              setLoading(false); // Make sure to set loading to false in case of an error.
+              setLoading(false); 
             });
         }
       }, [email]);
