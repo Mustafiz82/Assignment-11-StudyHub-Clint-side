@@ -25,7 +25,7 @@ const Assignment = () => {
 			</div>
 		);
 	}
-
+	console.log(newData);
 	const handlechange = (e) => {
 
 
@@ -81,9 +81,6 @@ const Assignment = () => {
 				{newData.map((item) => (
 					<Assignmentcard key={item._id} item={item}></Assignmentcard>
 				))}
-				{/* {data.map((item) => (
-					<Assignmentcard key={item._id} item={item}></Assignmentcard>
-				))} */}
 			</div>
 		</div>
 	);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Assignmentcard = ({ item }) => {
 	const {
@@ -15,7 +16,6 @@ const Assignmentcard = ({ item }) => {
 	return (
 		<div>
 			<div className="card bg-base-100 shadow-xl">
-				
 				<figure className=" bg-sky-200">
 					<img
 						src={imageURL}
@@ -23,18 +23,24 @@ const Assignmentcard = ({ item }) => {
 						className="rounded-xl w-full h-56 object-cover"
 					/>
 				</figure>
-               
+
 				<div className="card-body items-center text-center">
-                <div className="card-actions justify-center ">
-					<div className="badge badge-outline">{marks} marks</div>
-					<div className="badge badge-outline">{difficulty}</div>
-				</div>
+					<div className="card-actions justify-center ">
+						<div className="badge badge-outline">{marks} marks</div>
+						<div className="badge badge-outline">{difficulty}</div>
+					</div>
 					<h2 className="card-title">{title}</h2>
 					<p>Deadline {dueDate}</p>
 
 					<div className="card-actions">
-						<button className="btn btn-primary">view Assignment</button>
-						<button className="btn btn-primary">Update Assignment</button>
+						<Link to={`/assignments/${_id}`}>
+							<button className="btn btn-primary">
+								view Assignment
+							</button>
+						</Link>
+						<button  className="btn btn-primary">
+							Update Assignment
+						</button>
 					</div>
 				</div>
 			</div>
