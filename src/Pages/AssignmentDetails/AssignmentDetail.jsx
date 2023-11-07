@@ -52,7 +52,7 @@ const AssignmentDetail = () => {
 		const ObtainMarks = "pending"
 		const feedback = "pending"
 
-		const pdfData = { pdf, note, userEmail, userName  ,status , title ,marks};
+		const pdfData = { pdf, note, userEmail, userName  ,status , title ,marks , ObtainMarks , feedback};
 
 		axios
 			.post("http://localhost:5100/submittedAssignments", pdfData)
