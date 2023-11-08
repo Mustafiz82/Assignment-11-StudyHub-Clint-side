@@ -24,6 +24,7 @@ const Context = ({ children }) => {
 	};
 
 	const SignIN = (email, pass) => {
+		// setLoading = true
         return signInWithEmailAndPassword(Auth , email , pass)
 	};
 
@@ -37,6 +38,7 @@ const Context = ({ children }) => {
 	const provider = new GoogleAuthProvider();
 
 	const GoogleSignIn = () => {
+		// setLoading = true
 		return signInWithPopup(Auth, provider);
 	};
 

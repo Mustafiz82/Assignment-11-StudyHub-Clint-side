@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import AuthImage from "../../assets/login-regi.png";
 import { AuthContext } from '../../Context/Context';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -12,6 +12,8 @@ const Login = () => {
     const [error , setError] = useState("")
     const navigate = useNavigate()
 
+	const location = useLocation()
+	console.log(location);
 
     const handleSubmit = (e) => {
 
@@ -31,11 +33,13 @@ const Login = () => {
                 const success = toast.success('User Created Successfully')
                 console.log(result.user);
                 toast.dismiss(loadToast , success)
-                navigate("/")
+                navigate(location.state || "/")
                 
             })
             .catch(error  => {
-                console.log(error.message);
+                setError(error.message);
+				toast.dismiss( loadToast)
+
             })
 
 
@@ -49,7 +53,7 @@ const Login = () => {
         GoogleSignIn()
         .then(result => {
             console.log(result.user);
-            navigate("/")
+			navigate(location.state || "/")
         })
         .catch(error => {
             setError(error);
@@ -92,7 +96,7 @@ const Login = () => {
 								/>
 							
 							</div>
-                            <p className="text-red-500">   {error}</p>
+                            <p className="text-red-500">{error}</p>
 							<div className="form-control mt-6">
 								<button type="submit" className="btn btn-primary">
 									SignIn

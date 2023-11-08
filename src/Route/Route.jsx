@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-    createBrowserRouter,
-    RouterProvider,
-  } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Home from '../Pages/Home/Home';
 import MainLayout from '../Layout/MainLayout';
@@ -14,6 +11,7 @@ import Assignment from '../Pages/assignments/Assignment';
 import SubmitedAssingment from '../Pages/SubmitedAssingment/SubmitedAssingment';
 import AssignmentDetail from '../Pages/AssignmentDetails/AssignmentDetail';
 import UpdateAssignment from '../Pages/UpdateAssignment/UpdateAssignment';
+import PrivateRoute from './PrivateRoute';
  
   
 const router = createBrowserRouter([
@@ -41,23 +39,23 @@ const router = createBrowserRouter([
         },
         {
           path: "/myAssingment",
-          element: <MyAssingments></MyAssingments>
+          element: <PrivateRoute><MyAssingments></MyAssingments></PrivateRoute>
         },
         {
           path: "/CreateAssignment",
-          element: <CreateAssignment></CreateAssignment>
+          element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
         },
         {
           path: "/submitedAssingment",
-          element: <SubmitedAssingment></SubmitedAssingment>
+          element: <PrivateRoute><SubmitedAssingment></SubmitedAssingment></PrivateRoute>
         },
         {
           path: "/assignments/:id",
-          element: <AssignmentDetail></AssignmentDetail>
+          element: <PrivateRoute><AssignmentDetail></AssignmentDetail></PrivateRoute>
         },
         {
           path: "/updataAssignment/:id",
-          element: <UpdateAssignment></UpdateAssignment>
+          element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>
         },
       ],
     },
