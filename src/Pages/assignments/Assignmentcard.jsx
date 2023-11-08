@@ -1,7 +1,13 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/Context";
 
 const Assignmentcard = ({ item }) => {
+	const { user } = useContext(AuthContext);
+	const [isdeleted , setIsdeleted] = useState(false)
+
 	const {
 		creatorEmail,
 		description,
@@ -13,8 +19,64 @@ const Assignmentcard = ({ item }) => {
 		_id,
 	} = item;
 
+	const handlealart = () => {
+		
+
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			
+			if (result.isConfirmed) {
+
+				const clintEmail = user.email;
+						
+
+				axios
+					.delete(`http://localhost:5100/assignments/${_id}?email=${clintEmail}`)
+					.then((res) => {
+						console.log(res.data);
+						
+
+
+						if (res.data.deletedCount > 0) {
+							Swal.fire({
+								title: "Deleted!",
+								text: "Your file has been deleted.",
+								icon: "success",
+							});
+							setIsdeleted(true)
+						}
+						else{
+							Swal.fire({
+								icon: "error",
+								title: "Oops... ",
+								text: "Something went wrong",
+								footer: ''
+							  });
+						}
+					})
+					.catch(err => {
+						console.log(err);
+
+						Swal.fire({
+							icon: "error",
+							title: "Oops... Assignment Not Deleted",
+							text: "Only Assignmetn Creator can delete the Asignment",
+							footer: ''
+						  });
+					})
+			}
+		});
+	};
+
 	return (
-		<div>
+		<div className={isdeleted && "hidden"}>
 			<div className="card bg-base-100 shadow-xl">
 				<figure className=" bg-sky-200">
 					<img
@@ -34,13 +96,17 @@ const Assignmentcard = ({ item }) => {
 
 					<div className="card-actions">
 						<Link to={`/assignments/${_id}`}>
-							<button className="btn btn-primary">
-								view Assignment
-							</button>
+							<button className="btn btn-primary">view</button>
 						</Link>
-						<Link to={`/updataAssignment/${_id}`}><button  className="btn btn-primary">
-							Update Assignment
-						</button></Link>
+						<Link to={`/updataAssignment/${_id}`}>
+							<button className="btn btn-primary">Update</button>
+						</Link>
+						<button
+							onClick={handlealart}
+							className="btn btn-primary"
+						>
+							Delete
+						</button>
 					</div>
 				</div>
 			</div>
