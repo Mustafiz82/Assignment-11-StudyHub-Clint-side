@@ -72,7 +72,7 @@ const Regestration = () => {
 	return (
 		<div>
 			<div className="hero min-h-screen bg-white">
-				<div className="hero-content flex-col items-center lg:flex-row">
+				<div className="hero-content flex-col items-center md:flex-row">
 					<div className="text-center lg:text-left">
 						<img src={AuthImage} alt="" />
 					</div>

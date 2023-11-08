@@ -40,7 +40,7 @@ const CreateAssignment = () => {
 
 
 
-		axios.post("http://localhost:5100/assignments" , formData)
+		axios.post("https://study-hub-server-blue.vercel.app/assignments" , formData)
 		.then(res => {
 			const success = toast.success('Assignment Created Successfully')
 			console.log(res.data);

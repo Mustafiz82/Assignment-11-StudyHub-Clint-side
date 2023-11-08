@@ -24,7 +24,7 @@ const UpdateAssignment = () => {
 		queryKey: ["assignment"],
 		queryFn: async () => {
 			const res = await axios.get(
-				`http://localhost:5100/assignments/${id}`
+				`https://study-hub-server-blue.vercel.app/assignments/${id}`
 			);
 			return res.data;
 		},
@@ -85,7 +85,7 @@ const UpdateAssignment = () => {
 		console.log(formData);
 
 
-        axios.put(`http://localhost:5100/assignments/${id}` , formData)
+        axios.put(`https://study-hub-server-blue.vercel.app/assignments/${id}` , formData)
 		.then(res => {
 			const success = toast.success('Assignment Created Successfully')
 			console.log(res.data);

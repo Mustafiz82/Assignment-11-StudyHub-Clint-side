@@ -17,7 +17,7 @@ const MyAssingments = () => {
 
     useEffect(() => {
         if (email) {
-          axios.get(`http://localhost:5100/mySubmittedAssignments?userEmail=${email}`)
+          axios.get(`https://study-hub-server-blue.vercel.app/mySubmittedAssignments?userEmail=${email}`)
             .then((res) => {
               setData(res.data);
               setLoading(false);
@@ -47,8 +47,8 @@ const MyAssingments = () => {
 
 
     return (
-        <div>
-            <h1 className='text-3xl font-semibold text-center my-10'>Get All your submitted Assignmetn here </h1>
+        <div className="mx-5">
+            <h1 className='text-xl md:text-3xl font-semibold text-center my-10'>Get All your submitted Assignmetn here </h1>
             <div className="overflow-x-auto">
 				<table className="table table-xs md:table-lg mx-auto">
 					<thead>
@@ -63,7 +63,7 @@ const MyAssingments = () => {
 					<tbody>
 						{
                         data.map((item) => (
-							<tr className="hover">
+							<tr className="hover mb-5 ">
 								<td>{item.title}</td>
 								<td>{item.marks}</td>
 								<td>{item.status}</td>

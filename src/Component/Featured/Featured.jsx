@@ -11,7 +11,7 @@ const Featured = () => {
     const [data , setData] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5100/featured")
+        axios.get("https://study-hub-server-blue.vercel.app/featured")
         .then(res => {
             setData(res.data)
             setLoading(false)
@@ -38,7 +38,7 @@ const Featured = () => {
 
 
     return (
-        <div>
+        <div className="mx-5 ">
             <h1 className='text-4xl font-semibold my-10 text-center'>Featured Assignment</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -15,7 +15,7 @@ const AssignmentDetail = () => {
 		queryKey: ["assignment"],
 		queryFn: async () => {
 			const res = await axios.get(
-				`http://localhost:5100/assignments/${id}`
+				`https://study-hub-server-blue.vercel.app/assignments/${id}`
 			);
 			return res.data;
 		},
@@ -55,7 +55,7 @@ const AssignmentDetail = () => {
 		const pdfData = { pdf, note, userEmail, userName  ,status , title ,marks , ObtainMarks , feedback};
 
 		axios
-			.post("http://localhost:5100/submittedAssignments", pdfData)
+			.post("https://study-hub-server-blue.vercel.app/submittedAssignments", pdfData)
 			.then((res) => {
 				const success = toast.success('Assignment Submitted Successfully')
 				console.log(res.data);
@@ -67,7 +67,7 @@ const AssignmentDetail = () => {
 	};
 
 	return (
-		<div className="flex gap-5 items-center first:">
+		<div className="flex flex-col md:flex-row gap-5 items-center first:">
 			<div>
 				<img src={imageURL} alt="" />
 			</div>

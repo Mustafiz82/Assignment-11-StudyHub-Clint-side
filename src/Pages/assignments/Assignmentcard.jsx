@@ -38,7 +38,7 @@ const Assignmentcard = ({ item }) => {
 						
 
 				axios
-					.delete(`http://localhost:5100/assignments/${_id}?email=${clintEmail}`)
+					.delete(`https://study-hub-server-blue.vercel.app/assignments/${_id}?email=${clintEmail}`)
 					.then((res) => {
 						console.log(res.data);
 						

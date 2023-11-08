@@ -12,6 +12,7 @@ import SubmitedAssingment from '../Pages/SubmitedAssingment/SubmitedAssingment';
 import AssignmentDetail from '../Pages/AssignmentDetails/AssignmentDetail';
 import UpdateAssignment from '../Pages/UpdateAssignment/UpdateAssignment';
 import PrivateRoute from './PrivateRoute';
+import PDF from '../Pages/PDF/PDF';
  
   
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         {
           path: "/updataAssignment/:id",
           element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>
+        },
+        {
+          path: "/pdfviewer",
+          element: <PrivateRoute><PDF></PDF></PrivateRoute>
         },
       ],
     },

@@ -7,7 +7,7 @@ import { AuthContext } from "../Context/Context";
 const MainLayout = () => {
 	const { user } = useContext(AuthContext);
 	return (
-		<div>
+		<div className="max-w-screen-xl mx-auto">
 			<div >{user ? <LoggedInNav></LoggedInNav> : <LoggedOutNav></LoggedOutNav>} </div>
 			<Outlet></Outlet>
 		</div>

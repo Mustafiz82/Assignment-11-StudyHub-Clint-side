@@ -11,7 +11,7 @@ const Assignment = () => {
 	const [currentPage , setCurrentPage] = useState(0)
 
 	useEffect(() => {
-		axios.get("http://localhost:5100/AssignmentCount").then((res) => {
+		axios.get("https://study-hub-server-blue.vercel.app/AssignmentCount").then((res) => {
 			setCountData(res.data);
 		});
 	}, []);
@@ -44,7 +44,7 @@ const Assignment = () => {
 	}	
 
     useEffect(() => {
-		fetch(`http://localhost:5100/AssignmentPage?size=${itemPerPage}&page=${currentPage}`)
+		fetch(`https://study-hub-server-blue.vercel.app/AssignmentPage?size=${itemPerPage}&page=${currentPage}`)
 				.then((res) => res.json())
 				.then((data) => {
 					setNewData(data)
@@ -57,7 +57,7 @@ const Assignment = () => {
 	const { data, isLoading } = useQuery({
 		queryKey: ["assignment"],
 		queryFn: async () => {
-			const res = await axios.get("http://localhost:5100/assignments");
+			const res = await axios.get("https://study-hub-server-blue.vercel.app/assignments");
 			// setNewData(res.data);
 			setNewData2(res.data);
 			return res.data;
@@ -90,7 +90,7 @@ const Assignment = () => {
 
 
 
-			fetch(`http://localhost:5100/AssignmentPage?size=${itemPerPage}&page=${currentPage}&value=${filterValue}`)
+			fetch(`https://study-hub-server-blue.vercel.app/AssignmentPage?size=${itemPerPage}&page=${currentPage}&value=${filterValue}`)
 						.then((res) => res.json())
 						.then((data) => setNewData(data));
 			
@@ -109,7 +109,7 @@ const Assignment = () => {
 
 	return (
 		<div>
-			<div className="flex max-w-md m-5 mb-10  gap-2 mx-auto justify-center items-center">
+			<div className="flex flex-col md:flex-row max-w-md m-5 mb-10  gap-2 mx-auto justify-center items-center">
 				<p className="text-xl ">
 					Filter Assignment with difficulty lever
 				</p>
@@ -119,22 +119,22 @@ const Assignment = () => {
 					className="select select-ghost  input-bordered"
 					id=""
 				>
-					<option className="text-lg " value="All">
+					<option className="text-xs md:text-lg " value="All">
 						All
 					</option>
-					<option className="text-lg " value="easy">
+					<option className="text-xs md:text-lg " value="easy">
 						Easy
 					</option>
-					<option className="text-lg " value="medium">
+					<option className="text-xs md:text-lg " value="medium">
 						Medeum
 					</option>
-					<option className="text-lg " value="hard">
+					<option className="text-xs md:text-lg " value="hard">
 						Hard
 					</option>
 				</select>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+			<div className="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 				{newData.map((item) => (
 					<Assignmentcard key={item._id} item={item}></Assignmentcard>
 				))}
