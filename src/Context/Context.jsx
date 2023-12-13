@@ -10,6 +10,8 @@ import {
 	signOut,
 	updateProfile,
 } from "firebase/auth";
+import { FacebookAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 const Auth = getAuth(app);
@@ -25,7 +27,7 @@ const Context = ({ children }) => {
 
 	const SignIN = (email, pass) => {
 		// setLoading = true
-        return signInWithEmailAndPassword(Auth , email , pass)
+		return signInWithEmailAndPassword(Auth, email, pass);
 	};
 
 	const profile = (displayName, PhotoUrl) => {
@@ -40,6 +42,13 @@ const Context = ({ children }) => {
 	const GoogleSignIn = () => {
 		// setLoading = true
 		return signInWithPopup(Auth, provider);
+	};
+
+	const githubprovider = new GithubAuthProvider();
+
+	const githubLogin = () => {
+		return signInWithPopup(Auth, githubprovider)
+			
 	};
 
 	const logOut = () => {
@@ -64,6 +73,7 @@ const Context = ({ children }) => {
 		profile,
 		GoogleSignIn,
 		logOut,
+		githubLogin,
 	};
 
 	return <AuthContext.Provider value={obj}>{children}</AuthContext.Provider>;

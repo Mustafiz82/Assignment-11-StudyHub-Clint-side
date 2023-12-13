@@ -36,7 +36,6 @@ const Regestration = () => {
                     navigate("/")
                     toast.dismiss(loadToast)
 
-
                   }).catch((error) => {
                     console.log(error);
                   });

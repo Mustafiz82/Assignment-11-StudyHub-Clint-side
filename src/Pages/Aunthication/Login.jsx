@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
 
 
-    const {user   ,SignIN , GoogleSignIn} = useContext(AuthContext)
+    const {user   ,SignIN , GoogleSignIn ,githubLogin } = useContext(AuthContext)
     const [error , setError] = useState("")
     const navigate = useNavigate()
 
@@ -60,6 +60,20 @@ const Login = () => {
         })
     }
 
+	const handleGithubLogin = () => {
+		githubLogin()
+		.then(result => {
+            console.log(result.user);
+			navigate(location.state || "/")
+        })
+        .catch(error => {
+            setError(error);
+        })
+	}
+	
+
+
+
     return (
         <div>
            
@@ -107,6 +121,11 @@ const Login = () => {
 							<div className="form-control mt-2  mx-8 mb-5 -mt-2">
 								<button onClick={handlegoogelSignIn}  className="btn btn-primary">
 									SignIN with Google
+								</button>
+							</div>
+							<div className="form-control mt-2  mx-8 mb-5 -mt-2">
+								<button onClick={handleGithubLogin}  className="btn btn-primary">
+									SignIN with github
 								</button>
 							</div>
                         <Toaster></Toaster>

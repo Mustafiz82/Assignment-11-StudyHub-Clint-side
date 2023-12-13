@@ -48,7 +48,7 @@ const LoggedInNav = () => {
 						>
 							StudyHub
 						</Link>
-							<img src={logo} alt="" className="w-10 h-10 " />
+						<img src={logo} alt="" className="w-10 h-10 " />
 					</div>
 				</div>
 				<div className="navbar-center hidden lg:flex">
@@ -57,12 +57,15 @@ const LoggedInNav = () => {
 					</ul>
 				</div>
 				<div className="navbar-end space-x-5">
-					<img
-						title={user.displayName}
+					
+					<div className="tooltip  tooltip-bottom" data-tip={user.displayName}>
+                    <img
+						
 						src={user.photoURL || portrait}
 						alt=""
 						className="h-10 w-10 rounded-full  "
 					/>
+					</div>
 					<button onClick={handleLogout} className="btn">
 						Logout
 					</button>
